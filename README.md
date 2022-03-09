@@ -1,3 +1,3 @@
 # bigduration
 Go library for bigger duration than `time.duration`.  
-Covering from `0 seconds` to `2.923 * 10^11 years`.
+Covering from `0 seconds` to `2.925 * 10^11 years (9223372036854775807 seconds)`.
