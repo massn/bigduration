@@ -15,6 +15,12 @@ func TestParseForLittleSeconds(t *testing.T) {
 	assert.Equal(t, r, bigduration.BigDuration(32))
 }
 
+func TestParseForSubSeconds(t *testing.T) {
+	r, err := bigduration.ParseDuration("3.2s")
+	assert.Nil(t, err)
+	assert.Equal(t, r, bigduration.BigDuration(3))
+}
+
 func TestParseForBigSeconds(t *testing.T) {
 	r, err := bigduration.ParseDuration("244s")
 	assert.Nil(t, err)
@@ -25,6 +31,13 @@ func TestParseForLittleMinutes(t *testing.T) {
 	r, err := bigduration.ParseDuration("32m")
 	assert.Nil(t, err)
 	assert.Equal(t, r, bigduration.BigDuration(32*60))
+}
+
+func TestParseForSubMinutes(t *testing.T) {
+	r, err := bigduration.ParseDuration("32.23m")
+	assert.Nil(t, err)
+	f := math.Floor(32.23 * 60)
+	assert.Equal(t, r, bigduration.BigDuration(int64(f)))
 }
 
 func TestParseForBigMinutes(t *testing.T) {
