@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	bigduration "github.com/massn/bigduration/pkg"
+	"github.com/massn/bigduration"
 	"github.com/stretchr/testify/assert"
 )
 
