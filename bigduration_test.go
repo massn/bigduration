@@ -80,7 +80,7 @@ func TestParseForMaxInt64(t *testing.T) {
 	maxInt64string := strconv.FormatInt(math.MaxInt64, 10)
 	r, err := bigduration.ParseDuration(maxInt64string + "s")
 	assert.Nil(t, err)
-	assert.Equal(t, r, bigduration.BigDuration(9223372036854775807))
+	assert.Equal(t, r, bigduration.BigDuration(math.MaxInt64))
 }
 
 func TestParseError(t *testing.T) {
