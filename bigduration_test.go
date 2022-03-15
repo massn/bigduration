@@ -2,7 +2,6 @@ package bigduration_test
 
 import (
 	"math"
-	"strconv"
 	"testing"
 
 	"github.com/massn/bigduration"
@@ -76,11 +75,10 @@ func TestParseForMix(t *testing.T) {
 	assert.Equal(t, r, bigduration.BigDuration(122*365*24*60*60+8*24*60*60+9*60*60+22*60+21))
 }
 
-func TestParseForMaxInt64(t *testing.T) {
-	maxUint64string := strconv.FormatUint(math.MaxUint64, 10)
-	r, err := bigduration.ParseDuration(maxUint64string + "s")
+func TestParseForHugeNumber(t *testing.T) {
+	r, err := bigduration.ParseDuration("10000000000y") // 10 billion years
 	assert.Nil(t, err)
-	assert.Equal(t, r, bigduration.BigDuration(math.MaxUint64))
+	assert.Equal(t, r, bigduration.BigDuration(10000000000*365*24*60*60))
 }
 
 func TestParseError(t *testing.T) {
