@@ -37,7 +37,7 @@ func ParseDuration(s string) (BigDuration, error) {
 	}
 	totalSeconds := seconds + 60*minutes + 3600*hours + 86400*days + 31536000*years
 
-	f := math.Floor(totalSeconds)
+	f := math.Round(totalSeconds)
 	return BigDuration(int64(f)), nil
 }
 

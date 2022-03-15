@@ -36,7 +36,7 @@ func TestParseForLittleMinutes(t *testing.T) {
 func TestParseForSubMinutes(t *testing.T) {
 	r, err := bigduration.ParseDuration("32.23m")
 	assert.Nil(t, err)
-	f := math.Floor(32.23 * 60)
+	f := math.Round(32.23 * 60)
 	assert.Equal(t, r, bigduration.BigDuration(int64(f)))
 }
 
