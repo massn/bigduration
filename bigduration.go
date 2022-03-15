@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-type BigDuration int64
+type BigDuration uint64
 
 func ParseDuration(s string) (BigDuration, error) {
 	r := regexp.MustCompile(`^(([0-9|\.]+)y)?(([0-9|\.]+)d)?(([0-9|\.]+)h)?(([0-9|.]+)m)?(([0-9|\.]+)s)?$`)
@@ -38,7 +38,7 @@ func ParseDuration(s string) (BigDuration, error) {
 	totalSeconds := seconds + 60*minutes + 3600*hours + 86400*days + 31536000*years
 
 	f := math.Round(totalSeconds)
-	return BigDuration(int64(f)), nil
+	return BigDuration(uint64(f)), nil
 }
 
 func (b BigDuration) Seconds() float64 {

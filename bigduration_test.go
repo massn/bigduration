@@ -77,10 +77,10 @@ func TestParseForMix(t *testing.T) {
 }
 
 func TestParseForMaxInt64(t *testing.T) {
-	maxInt64string := strconv.FormatInt(math.MaxInt64, 10)
-	r, err := bigduration.ParseDuration(maxInt64string + "s")
+	maxUint64string := strconv.FormatUint(math.MaxUint64, 10)
+	r, err := bigduration.ParseDuration(maxUint64string + "s")
 	assert.Nil(t, err)
-	assert.Equal(t, r, bigduration.BigDuration(math.MaxInt64))
+	assert.Equal(t, r, bigduration.BigDuration(math.MaxUint64))
 }
 
 func TestParseError(t *testing.T) {
